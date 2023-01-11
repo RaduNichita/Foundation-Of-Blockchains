@@ -9,7 +9,10 @@ elrond_wasm_node::wasm_endpoints! {
     (
         getParticipants
         getRegistrationFee
+        getRegistrationFeeVip
+        getVipParticipants
         register
+        update_registration_fees
     )
 }
 
