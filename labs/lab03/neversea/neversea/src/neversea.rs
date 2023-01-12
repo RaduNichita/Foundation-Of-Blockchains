@@ -8,7 +8,7 @@ pub trait Neversea {
     fn init(&self, initial_registration_fee: BigUint, initial_registration_fee_vip: BigUint) {
         self.registration_fee()
             .set(BigUint::from(initial_registration_fee));
-        self.registration_fee()
+        self.registration_fee_vip()
             .set(BigUint::from(initial_registration_fee_vip));
     }
 
@@ -24,7 +24,7 @@ pub trait Neversea {
         );
         if payment_amount == BigUint::from(self.registration_fee().get()) {
             self.participants().insert(caller);
-        } else if payment_amount == BigUint::from(self.registration_fee().get()) {
+        } else if payment_amount == BigUint::from(self.registration_fee_vip().get()) {
             self.vip_participants().insert(caller);
         }
     }
@@ -35,7 +35,7 @@ pub trait Neversea {
     fn update_registration_fees(&self, initial_registration_fee: BigUint, initial_registration_fee_vip: BigUint) {
         self.registration_fee()
             .set(BigUint::from(initial_registration_fee));
-        self.registration_fee()
+        self.registration_fee_vip()
             .set(BigUint::from(initial_registration_fee_vip));
     }
 
